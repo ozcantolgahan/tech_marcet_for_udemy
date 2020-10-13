@@ -1,0 +1,24 @@
+extends layouts/main_site_layout.pug
+block content
+    .container-fluid.mt-5.mb-5
+        a.btn.btn-primary.mb-3(style="float:right;" href="/admin/add-product") +Add Product
+        table.table
+            thead
+                tr
+                th Product Id
+                th Product Image
+                th Product Name
+                th Product Price
+                th Product Setting
+            tbody
+                each product in products
+                    tr
+                    th(scope='row') #{product.id}
+                    td
+                        img(src=`${product.productImageUrl}` width="170" height="120")
+                    td #{product.productName}
+                    td #{product.productPrice}
+                    td
+                        form(action=`/edit-product/${product.id}` method="GET")
+                            input.btn.btn-primary(type="submit" style="margin-bottom:5px;" value="Edit") 
+                        a.btn.btn-danger(href=`/admin/delete/${product.id}`) Delete

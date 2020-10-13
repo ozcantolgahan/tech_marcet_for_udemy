@@ -1,0 +1,9 @@
+.container.mt-5.mb-5
+    form(action=pathWay method="POST")
+                input(type="hidden" name="id" value=product.id)
+                input(class="form-control" name="productName" placeholder="Product Name"  type="text" value= product.productName).mt-3
+                input(class="form-control"  name="productDescripe" placeholder="Product Describe" type="text" value=product.productDescripe).mt-3
+                input(class="form-control" name="productPrice" placeholder="Product Price" type="text" value=product.productPrice).mt-3
+                input(class="form-control" name="categoryId" placeholder="Product categoryId" type="text" value=product.categoryId).mt-3
+                input(class="form-control" name="productImageUrl" placeholder="Product Image Url" type="text" value=product.productImageUrl).mt-3
+                input(type="submit" value=buttonValue).mt-3.btn.btn-primary

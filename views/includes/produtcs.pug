@@ -1,0 +1,11 @@
+.container.mt-4.d-flex.flex-wrap.justify-content-between.mb-4
+        each product in products
+            .card.p-3.mt-4
+                img(src=`${product.productImageUrl}` height='150')
+                .card-body
+                    h4.card-title #{product.productName}
+                    p.card-text #{product.productPrice}
+                    a.btn.btn-primary(href=`/products/${product.id}`) İncele
+                    form(action="/addToBasket" method="POST")
+                        input(type="hidden" value=product name="product")
+                        input.btn.btn-danger(type="submit" value=" Sepete Ekle ")

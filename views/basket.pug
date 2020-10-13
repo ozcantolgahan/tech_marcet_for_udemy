@@ -1,0 +1,16 @@
+extends layouts/main_site_layout.pug
+block content
+    .container.mt-5.mb-5
+        h4.text-center.mb-2 Total Price:#{totalPrice}$
+        each product in products
+            .row.mt-4
+                .col
+                    img(src=`${product.productImageUrl}` height="170px" width="200px" style="display:inline;float:left;")
+                    h3.mt-2.ml-2 #{product.productName}
+                    h4.ml-2 #{product.productPrice}$
+                .col-2
+                    form(action="/removeFromBasket" method="POST")
+                        input(type="hidden" name="product" value=product)
+                        input.btn.btn-danger(type="submit" value="Kaldır") 
+        
+                

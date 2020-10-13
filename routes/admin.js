@@ -1,0 +1,10 @@
+const express=require("express");
+const route=express.Router();
+const adminController=require("../controller/admin");
+route.get("/admin",adminController.getAllProductsForAdmin);
+route.get("/edit-product/:id",adminController.getProductEdit);
+route.post("/admin/edited",adminController.editTheProduct);
+route.use("/admin/delete/:id",adminController.deleteTheProduct); 
+route.get("/admin/add-product",adminController.addNewProduct);
+route.post("/admin/added-product",adminController.addTheProduct);
+module.exports=route;

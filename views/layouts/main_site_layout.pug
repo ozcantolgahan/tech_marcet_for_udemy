@@ -1,0 +1,65 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css' integrity='sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z' crossorigin='anonymous')
+    link(rel='stylesheet' href='/css/main.css ')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js')
+  body
+    header
+      nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        a.navbar-brand(href='/') TechMarcet
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.mr-auto
+            li.nav-item(class=title=="Anasayfa"?"active":"")
+              a.nav-link(href='/')
+                | Anasayfa 
+                span.sr-only (current)
+            li.nav-item(class=title=="Ürünler"?"active":"")
+              a.nav-link(href='/products') Ürünler
+            li.nav-item(class=title=="Hakkımızda"?"active":"")
+              a.nav-link(href='/aboutUs') Hakkımızda
+            li.nav-item(class=title=="İletişim"?"active":"")
+              a.nav-link(href='/contact') İletişim
+          form.form-inline.my-2.my-lg-0(action="/search" method="GET")
+            input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search' name="productName")
+            button.btn.btn-outline-primary.my-2.my-sm-0(type='submit') Search
+      .container.mt-3
+        ul.nav.nav-pills.nav-fill
+            each category in categories
+                li.nav-item
+                    a.nav-link(href=`/category/${category.categoryName}` class=title==category.categoryName?"active":"") #{category.categoryName}
+    main
+       block content
+       a.btn(href="/basket").basket
+        
+    footer.p-3
+      .row
+        .col
+          nav.nav.flex-column
+            a.nav-link.text-white(href='#!') Hakkımızda
+            a.nav-link(href='#!') Link
+            a.nav-link(href='#!') Link
+        .col
+          nav.nav.flex-column
+            a.nav-link.text-white(href='#!') İletişim
+            a.nav-link(href='#!') Link
+            a.nav-link(href='#!') Link
+        .col
+          nav.nav.flex-column
+            a.nav-link.text-white(href='#!') Etiketler
+            a.nav-link(href='#!') Link
+            a.nav-link(href='#!') Link
+        .col
+          nav.nav.flex-column
+            a.nav-link.text-white(href='#!') E-Blog
+            a.nav-link(href='#!') Link
+            a.nav-link(href='#!') Link
+      h4.text-white.text-center.mt-2 © Tüm hakları saklıdır
+    script(src="/js/script.js")
+    script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js' integrity='sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js' integrity='sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV' crossorigin='anonymous')

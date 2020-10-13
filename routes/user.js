@@ -1,0 +1,15 @@
+const express=require("express");
+const route=express.Router();
+const shopController=require("../controller/shop");
+route.get("/products",shopController.getAllProducts);
+route.get("/products/:id",shopController.getProduct);
+route.get("/category/:categoryName",shopController.getProductByCategory);
+route.get("/search",shopController.getProductSearched);
+route.get("/basket",shopController.basket);
+route.post("/addToBasket",shopController.addToBasket);
+route.post("/removeFromBasket",shopController.removeFromBasket);
+route.get("/aboutUs",shopController.aboutUs);
+route.get("/contact",shopController.contact);
+route.get("/",shopController.getProductsForHomepage);
+route.use(shopController.errorPage);
+module.exports=route;

@@ -1,0 +1,13 @@
+.card{
+    width: 26%;
+}
+.card a{
+    float: left;
+    margin-right: 5px;
+   
+}
+
+.social-media-animation img{
+    position: relative;
+    top: 10%;
+}

@@ -1,0 +1,13 @@
+const express=require("express");
+const app=express();
+const userRoute=require("./routes/user");
+const adminRoute=require("./routes/admin");
+const path=require("path");
+const bodyParser=require("body-parser");
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.json());
+app.use(express.static(path.join(__dirname,"public")));
+app.use(adminRoute);
+app.listen(3000);
+app.set("view engine","pug");
+app.use(userRoute);

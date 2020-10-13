@@ -1,0 +1,14 @@
+@import url("../css/carouselStyle.css");
+@import url("../css/cardStyle.css");
+
+.basket{
+    background-image: url("/img/basket.png");
+    width: 64px;
+    height: 64px;
+    position: fixed;
+    right: 2%;
+    bottom: 10%;
+}
+footer{
+    background-color: #333333;
+}
